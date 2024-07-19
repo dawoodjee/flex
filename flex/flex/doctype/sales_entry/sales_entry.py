@@ -14,6 +14,9 @@ class SalesEntry(Document):
 		self.shop = self.get_sales_persons_shop(shop_settings, self.sales_person)
 		
 	def get_sales_persons_shop(self, shop_settings, sales_person):
+
+		if self.shop and shop_settings.allow_supervisors_to_switch_shops == 1:
+			return self.shop
 		for shop in shop_settings.staff_allocation:
 			if shop.sales_person and shop.shop:
 				if shop.sales_person == sales_person:
@@ -28,9 +31,12 @@ class SalesEntry(Document):
 
 	def update_line_amount(self):
 		total = 0
+		total_qty = 0
 		for sales_line in self.sales_entries:
 			if not sales_line.price or not sales_line.qty:
 				continue
 			sales_line.amount = sales_line.price * sales_line.qty
+			total_qty = total_qty + sales_line.qty
 			total = total + sales_line.amount
 		self.total = total
+		self.total_qty = total_qty

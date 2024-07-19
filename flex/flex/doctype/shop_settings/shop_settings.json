@@ -5,6 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "allow_supervisors_to_switch_shops",
   "staff_allocation"
  ],
  "fields": [
@@ -13,12 +14,18 @@
    "fieldtype": "Table",
    "label": "Staff Allocation",
    "options": "Sales Person Allocation"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_supervisors_to_switch_shops",
+   "fieldtype": "Check",
+   "label": "Allow Supervisors to change shops"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-03-01 21:44:24.482368",
+ "modified": "2024-07-19 17:33:52.229311",
  "modified_by": "Administrator",
  "module": "Flex",
  "name": "Shop Settings",

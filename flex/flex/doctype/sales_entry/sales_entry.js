@@ -3,7 +3,7 @@
 
 frappe.ui.form.on("Sales Entry", {
 	refresh(frm) {
-
+		//check_supervisor(frm);
 	},
     validate(frm) {
         update_form(frm);

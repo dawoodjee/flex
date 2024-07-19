@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_events_in_timeline": 1,
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:SALE-{YY}-{MM}{DD}-{###}",
@@ -40,7 +41,8 @@
    "fieldname": "date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Date"
+   "label": "Date",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_umnh",
@@ -58,11 +60,12 @@
   {
    "fetch_from": "sales_person.username",
    "fieldname": "shop",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Shop",
    "no_copy": 1,
-   "read_only": 1
+   "options": "Shop",
+   "reqd": 1
   },
   {
    "depends_on": "date",
@@ -73,7 +76,8 @@
    "fieldname": "sales_entries",
    "fieldtype": "Table",
    "label": "Sales Entries",
-   "options": "Sales Entry Line"
+   "options": "Sales Entry Line",
+   "reqd": 1
   },
   {
    "depends_on": "date",
@@ -103,7 +107,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-01 20:56:17.887427",
+ "modified": "2024-07-19 18:10:06.947546",
  "modified_by": "Administrator",
  "module": "Flex",
  "name": "Sales Entry",
@@ -163,6 +167,5 @@
  "sort_order": "DESC",
  "states": [],
  "track_changes": 1,
- "track_seen": 1,
- "track_views": 1
+ "track_seen": 1
 }
